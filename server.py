@@ -5,6 +5,7 @@ IP = '127.0.0.1'
 PORT = 12000
 BUFFER_SIZE = 1024
 
+
 async def echo(conn: socket.socket, addr):
     loop = asyncio.get_running_loop()
     try:
@@ -34,7 +35,7 @@ async def main():
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.setblocking(False)
     server.bind((IP, PORT))
-    server.listen(5)
+    server.listen(100)
     print("Server starts, waiting for connection...")
     await listen_for_conn(server)
 
